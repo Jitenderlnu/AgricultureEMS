@@ -1,0 +1,27 @@
+@model IEnumerable<AgricultureEMS.Models.Crop>
+@{
+    ViewData["Title"] = "Crops";
+}
+<h2>Crops</h2>
+<a asp-action="Create" class="btn btn-primary">Add Crop</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Crop Name</th>
+            <th>Variety</th>
+            <th>Planted Date</th>
+            <th>Field</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CropName</td>
+            <td>@item.Variety</td>
+            <td>@item.PlantedDate.ToShortDateString()</td>
+            <td>@item.Field?.FieldName</td>
+        </tr>
+    }
+    </tbody>
+</table>

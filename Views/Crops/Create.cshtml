@@ -1,0 +1,24 @@
+@model AgricultureEMS.Models.Crop
+@{
+    ViewData["Title"] = "Add Crop";
+}
+<h2>Add Crop</h2>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="CropName"></label>
+        <input asp-for="CropName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Variety"></label>
+        <input asp-for="Variety" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PlantedDate"></label>
+        <input asp-for="PlantedDate" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="FieldId">Field</label>
+        <select asp-for="FieldId" class="form-control" asp-items="@(new SelectList(ViewBag.Fields, "Id", "FieldName"))"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
